@@ -6,38 +6,43 @@ import javafx.scene.paint.Color;
 
 public class PlayerControls {
 
+    private Player player;
     private Scene scene;
     private CanvasCreator canvasCreator;
     private GraphicsContext graphicsContext;
-    private Player player;
 
-    public PlayerControls(Scene scene, GraphicsContext graphicsContext, CanvasCreator canvasCreator, Player player) {
-        this.scene = scene;
-        this.graphicsContext = graphicsContext;
-        this.canvasCreator = canvasCreator;
+    private static final String UP = "W";
+    private static final String DOWN = "S";
+    private static final String LEFT = "A";
+    private static final String RIGHT = "D";
+
+    public PlayerControls(Player player, Scene scene, CanvasCreator canvasCreator, GraphicsContext graphicsContext) {
         this.player = player;
+        this.scene = scene;
+        this.canvasCreator = canvasCreator;
+        this.graphicsContext = graphicsContext;
 
         controls();
     }
 
     public void controls() {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, key -> {
-            if (key.getCode() == KeyCode.W) {
+            if (key.getCode() == KeyCode.getKeyCode(UP)) {
                 if (player.getLocationY() > 0) {
                     player.setLocationY(player.getLocationY() - 1);
                 }
             }
-            if (key.getCode() == KeyCode.S) {
+            if (key.getCode() == KeyCode.getKeyCode(DOWN)) {
                 if (player.getLocationY() < canvasCreator.getHeight()) {
                     player.setLocationY(player.getLocationY() + 1);
                 }
             }
-            if (key.getCode() == KeyCode.A) {
+            if (key.getCode() == KeyCode.getKeyCode(LEFT)) {
                 if (player.getLocationX() > 0) {
                     player.setLocationX(player.getLocationX() - 1);
                 }
             }
-            if (key.getCode() == KeyCode.D) {
+            if (key.getCode() == KeyCode.getKeyCode(RIGHT)) {
                 if (player.getLocationX() < canvasCreator.getWidth()) {
                     player.setLocationX(player.getLocationX() + 1);
                 }

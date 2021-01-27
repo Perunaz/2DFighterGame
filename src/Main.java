@@ -31,7 +31,7 @@ public class Main extends Application {
         graphicsContext.fillRect(player.getLocationX() * canvasCreator.getCornersize(), player.getLocationY() * canvasCreator.getCornersize(), canvasCreator.getCornersize() - 1, canvasCreator.getCornersize() - 1);
 
         Scene scene = new Scene(root, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
-        PlayerControls playerControls = new PlayerControls(scene, graphicsContext, canvasCreator, player);
+        PlayerControls playerControls = new PlayerControls(player, scene, canvasCreator, graphicsContext);
 
         stage.setTitle("2DFighterGame");
         stage.setScene(scene);
