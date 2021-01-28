@@ -1,8 +1,15 @@
-public class Enemy implements Character{
+package charactar;
+
+import canvas.CanvasCreator;
+import location.Coordinate;
+
+public class Player implements Character {
     private Coordinate coordinate;
 
-    public Enemy(int locationX, int locationY) {
+    public Player(int locationX, int locationY, CanvasCreator canvasCreator) {
         this.coordinate = new Coordinate(locationX, locationY);
+
+        canvasCreator.getCharacterChecker().put(this.coordinate.getID(), true);
     }
 
     @Override

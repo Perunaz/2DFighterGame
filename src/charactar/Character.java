@@ -1,3 +1,7 @@
+package charactar;
+
+import location.Coordinate;
+
 public interface Character {
 
     public int getLocationX();

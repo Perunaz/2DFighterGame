@@ -1,3 +1,7 @@
+import canvas.CanvasCreator;
+import charactar.EnemySpawner;
+import charactar.Player;
+import charactar.PlayerMovement;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -35,7 +39,7 @@ public class Main extends Application {
         graphicsContext.fillRect(player.getLocationX() * canvasCreator.getCornersize(), player.getLocationY() * canvasCreator.getCornersize(), canvasCreator.getCornersize() - 1, canvasCreator.getCornersize() - 1);
 
         Scene scene = new Scene(root, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
-        PlayerControls playerControls = new PlayerControls(player, scene, canvasCreator, graphicsContext);
+        PlayerMovement playerMovement = new PlayerMovement(player, scene, canvasCreator, graphicsContext, enemySpawner.getEnemies());
 
         stage.setTitle("2DFighterGame");
         stage.setScene(scene);

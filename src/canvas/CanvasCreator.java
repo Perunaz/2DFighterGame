@@ -1,3 +1,5 @@
+package canvas;
+
 import javafx.scene.canvas.Canvas;
 
 import java.util.HashMap;
