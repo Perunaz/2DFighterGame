@@ -21,13 +21,17 @@ public class Main extends Application {
         VBox root = new VBox();
         Canvas canvas = canvasCreator.Create();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        Player player = new Player(random.nextInt(canvasCreator.getWidth()), random.nextInt(canvasCreator.getHeight()));
+        Player player = new Player(random.nextInt(canvasCreator.getWidth()), random.nextInt(canvasCreator.getHeight()), canvasCreator);
 
-        root.getChildren().add(canvas);
         graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillRect(0, 0, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
 
-        graphicsContext.setFill(Color.RED);
+        EnemySpawner enemySpawner = new EnemySpawner(canvasCreator, graphicsContext);
+        enemySpawner.spawn(15);
+
+        root.getChildren().add(canvas);
+
+        graphicsContext.setFill(Color.BLUE);
         graphicsContext.fillRect(player.getLocationX() * canvasCreator.getCornersize(), player.getLocationY() * canvasCreator.getCornersize(), canvasCreator.getCornersize() - 1, canvasCreator.getCornersize() - 1);
 
         Scene scene = new Scene(root, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());

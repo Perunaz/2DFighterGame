@@ -33,7 +33,7 @@ public class PlayerControls {
                 }
             }
             if (key.getCode() == KeyCode.getKeyCode(DOWN)) {
-                if (player.getLocationY() < canvasCreator.getHeight()) {
+                if (player.getLocationY() < canvasCreator.getHeight() - 1) {
                     player.setLocationY(player.getLocationY() + 1);
                 }
             }
@@ -43,14 +43,14 @@ public class PlayerControls {
                 }
             }
             if (key.getCode() == KeyCode.getKeyCode(RIGHT)) {
-                if (player.getLocationX() < canvasCreator.getWidth()) {
+                if (player.getLocationX() < canvasCreator.getWidth() - 1) {
                     player.setLocationX(player.getLocationX() + 1);
                 }
             }
             graphicsContext.setFill(Color.BLACK);
             graphicsContext.fillRect(0, 0, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
 
-            graphicsContext.setFill(Color.RED);
+            graphicsContext.setFill(Color.BLUE);
             graphicsContext.fillRect(player.getLocationX() * canvasCreator.getCornersize(), player.getLocationY() * canvasCreator.getCornersize(), canvasCreator.getCornersize() - 1, canvasCreator.getCornersize() - 1);
         });
     }
