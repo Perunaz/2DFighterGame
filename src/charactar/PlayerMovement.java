@@ -28,8 +28,6 @@ public class PlayerMovement {
         this.canvasCreator = canvasCreator;
         this.graphicsContext = graphicsContext;
         this.enemies = enemies;
-
-        controls();
     }
 
     public void controls() {
@@ -40,24 +38,33 @@ public class PlayerMovement {
                 if (player.getLocationY() > 0) {
                     this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                     player.setLocationY(player.getLocationY() - 1);
+                    this.canvasCreator.getCharacterChecker().put(player.getCoordinate().getID(), true);
                 }
             }
             if (key.getCode() == KeyCode.getKeyCode(DOWN)) {
                 if (player.getLocationY() < canvasCreator.getHeight() - 1) {
                     this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                     player.setLocationY(player.getLocationY() + 1);
+                    this.canvasCreator.getCharacterChecker().put(player.getCoordinate().getID(), true);
                 }
             }
             if (key.getCode() == KeyCode.getKeyCode(LEFT)) {
                 if (player.getLocationX() > 0) {
                     this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                     player.setLocationX(player.getLocationX() - 1);
+                    this.canvasCreator.getCharacterChecker().put(player.getCoordinate().getID(), true);
                 }
             }
             if (key.getCode() == KeyCode.getKeyCode(RIGHT)) {
                 if (player.getLocationX() < canvasCreator.getWidth() - 1) {
                     this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                     player.setLocationX(player.getLocationX() + 1);
+                    this.canvasCreator.getCharacterChecker().put(player.getCoordinate().getID(), true);
+                }
+            }
+            if (key.getCode() == KeyCode.Q) {
+                for (String charactarCheckerKey : canvasCreator.getCharacterChecker().keySet()) {
+                    canvasCreator.getCharacterChecker().put(charactarCheckerKey, false);
                 }
             }
 

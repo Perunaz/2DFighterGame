@@ -47,6 +47,7 @@ public class EnemyMovement {
             if (enemy.getLocationY() > 0 && !canvasCreator.getCharacterChecker().get(idOfNextCoordinate)) {
                 this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                 enemy.setLocationY(enemy.getLocationY() - 1);
+                this.canvasCreator.getCharacterChecker().put(enemy.getCoordinate().getID(), true);
             }
         } else if (distanceX <= distanceY && player.getLocationY() >= enemy.getLocationY()) {
             idOfNextCoordinate = new Coordinate(enemy.getLocationX(), enemy.getLocationY() + 1).getID();
@@ -54,6 +55,7 @@ public class EnemyMovement {
             if (enemy.getLocationY() < canvasCreator.getHeight() - 1 && !canvasCreator.getCharacterChecker().get(idOfNextCoordinate)) {
                 this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                 enemy.setLocationY(enemy.getLocationY() + 1);
+                this.canvasCreator.getCharacterChecker().put(enemy.getCoordinate().getID(), true);
             }
         } else if (distanceX >= distanceY && player.getLocationX() <= enemy.getLocationX()) {
             idOfNextCoordinate = new Coordinate(enemy.getLocationX() - 1, enemy.getLocationY()).getID();
@@ -61,6 +63,7 @@ public class EnemyMovement {
             if (enemy.getLocationX() > 0 && !canvasCreator.getCharacterChecker().get(idOfNextCoordinate)) {
                 this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                 enemy.setLocationX(enemy.getLocationX() - 1);
+                this.canvasCreator.getCharacterChecker().put(enemy.getCoordinate().getID(), true);
             }
         } else if (distanceX >= distanceY && player.getLocationX() >= enemy.getLocationX()) {
             idOfNextCoordinate = new Coordinate(enemy.getLocationX() + 1, enemy.getLocationY()).getID();
@@ -68,6 +71,7 @@ public class EnemyMovement {
             if (enemy.getLocationX() < canvasCreator.getWidth() - 1 && !canvasCreator.getCharacterChecker().get(idOfNextCoordinate)) {
                 this.canvasCreator.getCharacterChecker().put(idCurrentLocation, false);
                 enemy.setLocationX(enemy.getLocationX() + 1);
+                this.canvasCreator.getCharacterChecker().put(enemy.getCoordinate().getID(), true);
             }
         }
 

@@ -27,6 +27,7 @@ public class EnemySpawner {
 
             if (!canvasCreator.getCharacterChecker().get(coordinate.getID())) {
                 Enemy enemy = new Enemy(random.nextInt(canvasCreator.getWidth()), random.nextInt(canvasCreator.getHeight()));
+                this.canvasCreator.getCharacterChecker().put(enemy.getCoordinate().getID(), true);
                 enemies.add(enemy);
                 colorLocation(coordinate);
             } else {

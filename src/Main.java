@@ -26,6 +26,7 @@ public class Main extends Application {
         Canvas canvas = canvasCreator.Create();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         Player player = new Player(random.nextInt(canvasCreator.getWidth()), random.nextInt(canvasCreator.getHeight()), canvasCreator);
+        this.canvasCreator.getCharacterChecker().put(player.getCoordinate().getID(), true);
 
         graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillRect(0, 0, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
@@ -40,6 +41,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, canvasCreator.getWidth()*canvasCreator.getCornersize(), canvasCreator.getHeight()*canvasCreator.getCornersize());
         PlayerMovement playerMovement = new PlayerMovement(player, scene, canvasCreator, graphicsContext, enemySpawner.getEnemies());
+        playerMovement.controls();
 
         stage.setTitle("2DFighterGame");
         stage.setScene(scene);
